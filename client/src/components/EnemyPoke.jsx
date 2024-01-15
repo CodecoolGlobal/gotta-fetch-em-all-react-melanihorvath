@@ -1,0 +1,1 @@
+// enemy megjelenik saját kiválaszt
