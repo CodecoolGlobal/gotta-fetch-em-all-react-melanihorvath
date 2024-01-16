@@ -2,9 +2,7 @@
 import { useState } from 'react'
 import SelectLands from "./components/SelectLands"
 import ChoosePoke from './components/ChoosePoke'
-
-
-
+import Battle from './components/Battle';
 import './App.css'
 
 function App() {
@@ -20,7 +18,7 @@ const [selectedLandURL, setSelectedLandURL] = useState()
         { !landsIsSelected && !pokeIsSelected  &&  <SelectLands onLocationSelected={(locationURL)=>{setSelectedLandURL(locationURL)
         setLandsIsSelected(true)}}/>}
         {landsIsSelected && !pokeIsSelected && <ChoosePoke />}
-  
+        {landsIsSelected && pokeIsSelected ? (<Battle/>) : (<div>asd</div>)} 
       </div>
   )
 }
