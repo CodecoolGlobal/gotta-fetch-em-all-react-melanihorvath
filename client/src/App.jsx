@@ -17,7 +17,7 @@ function App() {
         { !landsIsSelected && !pokeIsSelected  &&  <SelectLands onLocationSelected={(locationURL)=>{setSelectedLandURL(locationURL)
         setLandsIsSelected(true)}}/>}
         {landsIsSelected && !pokeIsSelected && <ChoosePoke />}
-        {landsIsSelected && pokeIsSelected ? (<Battle/>) : (<div></div>)} 
+        {landsIsSelected && pokeIsSelected ? (<Battle onPokeIsSelected={(pokeIsSelected) => setPokeIsSelected(pokeIsSelected)} onLandIsSelected={(landIsSelected) => setLandsIsSelected(landIsSelected)}/>) : (<div>SelectLands</div>)} 
       </div>
   )
 }
