@@ -15,7 +15,7 @@ function ChoosePoke({onClickReady, onPokemon}) {
 
     return (
         <div>
-            <div>
+            <div className="choosenPokemons">
                 {/* <EnemyPoke /> */}
                 {playersPokemon && <PlayerPokemon onLoad={playersPokemon} />}
             </div>

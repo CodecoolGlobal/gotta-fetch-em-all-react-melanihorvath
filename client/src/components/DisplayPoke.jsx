@@ -12,7 +12,7 @@ function DisplayPoke(props) {
   console.log(pokemons)
 
     return (
-        <div>
+        <div className='backpackPokemons'>
             {pokemons.map((pokemon, index)=>(
                 <div key={index} className="poke">
                     <img src={pokemon.sprites.front_default}></img>

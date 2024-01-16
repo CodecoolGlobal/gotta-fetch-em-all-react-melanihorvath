@@ -40,7 +40,7 @@ function Backpack({onChoose}) {
 
 
     return (
-        <div>
+        <div className="backpack">
             {isPending && <p>{"Loading the pokemon"}</p>}
             {userPokemons && <DisplayPoke onChoose={onChoose} pokemons={userPokemons} />}
         </div>
