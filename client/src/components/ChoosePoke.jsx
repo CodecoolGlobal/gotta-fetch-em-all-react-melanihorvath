@@ -1,20 +1,28 @@
 import EnemyPoke from "./EnemyPoke";
 import Backpack from "./Backpack";
+import { useState } from "react";
+import PlayerPokemon from "./PlayersPoke"
 
-function ChoosePoke() {
 
+function ChoosePoke({onClickReady, onPokemon}) {
+    const [playersPokemon, setPlayersPokemon] = useState()
+    console.log(playersPokemon)
 
+    const handleClick = () =>{
+        onPokemon(playersPokemon) 
+        onClickReady(true)
+    }
 
     return (
         <div>
             <div>
                 {/* <EnemyPoke /> */}
-                {/* <PlayersPoke /> */}
+                {playersPokemon && <PlayerPokemon onLoad={playersPokemon} />}
             </div>
             <div>
-                <Backpack />
+                <Backpack onChoose={setPlayersPokemon}/>
             </div>
-            <button>Start the fight</button>
+            {playersPokemon && <button onClick={handleClick}>Start the fight</button>}
         </div>
     );
 }
