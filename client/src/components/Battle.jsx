@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 function Battle(props) {
   const pokeIsSelected = props.onPokeIsSelected;
   const landIsSelected = props.onLandIsSelected;
+  const playerPokemon = props.onChoosenPokemon
   const [enemy, setEnemy] = useState(null);
   const [friendly, setFriendly] = useState(null);
   const [result, setResult] = useState(null)
@@ -19,7 +20,7 @@ function Battle(props) {
   }, []);
 
   useEffect(() => {
-    fetch("https://pokeapi.co/api/v2/pokemon/bulbasaur")
+    fetch("https://pokeapi.co/api/v2/pokemon/" + playerPokemon.name)
       .then(res => res.json())
       .then(data => {
         setFriendly(data)

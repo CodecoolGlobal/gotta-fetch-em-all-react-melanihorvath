@@ -8,7 +8,7 @@ const fetchFunc = async (url) => {
 }
 
 
-function Backpack() {
+function Backpack({onChoose}) {
     const usersPokemonUrls = [
         "https://pokeapi.co/api/v2/pokemon/gengar",
         "https://pokeapi.co/api/v2/pokemon/charizard",
@@ -42,7 +42,7 @@ function Backpack() {
     return (
         <div>
             {isPending && <p>{"Loading the pokemon"}</p>}
-            {userPokemons && <DisplayPoke pokemons={userPokemons} />}
+            {userPokemons && <DisplayPoke onChoose={onChoose} pokemons={userPokemons} />}
         </div>
     );
 }
