@@ -1,7 +1,7 @@
 import EnemyPoke from "./EnemyPoke";
 import Backpack from "./Backpack";
 
-function ChoosePoke() {
+function ChoosePoke(props) {
 
 
 
