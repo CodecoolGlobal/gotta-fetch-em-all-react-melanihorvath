@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 
-function Battle() {
-
+function Battle(props) {
+  const pokeIsSelected = props.onPokeIsSelected;
+  const landIsSelected = props.onLandIsSelected;
   const [enemy, setEnemy] = useState(null);
   const [friendly, setFriendly] = useState(null);
   const [result, setResult] = useState(null)
@@ -61,16 +62,23 @@ function Battle() {
     }
   }
 
+  function handleAgain(){
+    pokeIsSelected(false);
+    landIsSelected(false)
+  }
+
 
   return (
     <>
       {result === "winner" ? (
         <div>
           <h1>EASY PEASY LEMON SQUEEZI!!</h1>
+          <button onClick={()=>handleAgain()}>GO AGAIN CHAMP!</button>
         </div>
       ) : result === "lost" ? (
         <div>
           <h1>OMG WHAT A LOOSER! DID U KNOW WHAT GAME ARE U PLAYING???</h1>
+          <button onClick={()=>handleAgain()}>Play again? (noob)</button>
         </div>
       ) : friendly && enemy && friendlyHp && enemyHp &&(
         <div>
