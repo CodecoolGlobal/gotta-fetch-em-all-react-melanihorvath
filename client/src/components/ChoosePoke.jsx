@@ -7,7 +7,6 @@ function ChoosePoke() {
 
     return (
         <div>
-            <p>{"poke"}</p>
             {/* <EnemyPoke /> */}
             <Backpack/>
         </div>

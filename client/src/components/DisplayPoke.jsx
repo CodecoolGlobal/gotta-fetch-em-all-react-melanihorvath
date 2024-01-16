@@ -1,5 +1,5 @@
 function DisplayPoke(props) {
-   const pokemon = props.pokemon
+   const pokemons = props.pokemons
 
    function getStat(poke, type){
     const Stat = poke.stats.find(stat => stat.stat.name === `${type}`);
@@ -8,16 +8,20 @@ function DisplayPoke(props) {
       return Stat.base_stat;
     }
   }
-  console.log(pokemon)
+  console.log(pokemons)
 
     return (
-        <div key={props.key} className="poke">
-            <img src={pokemon.sprites.front_default}></img>
-            <h3>{pokemon.forms.name}</h3>
-            <p>{"Type: " + pokemon.types.type.name}</p>
-            <p>{"HP: " + getStat(pokemon, "hp")}</p>
-            <p>{"Attack: " + getStat(pokemon, "attack")}</p>
-            <p>{"Defense: " + getStat(pokemon, "defense")}</p>
+        <div>
+            {pokemons.map((pokemon)=>(
+                <div key={pokemon.name} className="poke">
+                    <img src={pokemon.sprites.front_default}></img>
+                    <h3>{pokemon.name}</h3>
+                    <p>{"Type: " + pokemon.types.map((type) => type.type.name)}</p>
+                    <p>{"HP: " + getStat(pokemon, "hp")}</p>
+                    <p>{"Attack: " + getStat(pokemon, "attack")}</p>
+                    <p>{"Defense: " + getStat(pokemon, "defense")}</p>
+                </div>
+            ))}
         </div>
     );
 }

@@ -1,42 +1,48 @@
-import UseFetch from "./UseFetch";
 import { useEffect, useState } from "react";
 import DisplayPoke from "./DisplayPoke";
 
+const fetchFunc = async (url) => {
+    const response = await fetch(url)
+    const data = await response.json()
+    return data
+}
+
+
 function Backpack() {
-   const usersPokemon = [
-    "https://pokeapi.co/api/v2/pokemon/gengar",
-    "https://pokeapi.co/api/v2/pokemon/charizard",
-    "https://pokeapi.co/api/v2/pokemon/blastoise",
-    "https://pokeapi.co/api/v2/pokemon/cubone",
-    "https://pokeapi.co/api/v2/pokemon/muk",
-    "https://pokeapi.co/api/v2/pokemon/mankey"
-]
-const [isPending, setIsPending]= useState(true)
-const [error, setError] = useState(null)
-const [pokeInfos, setPokeInfos] = useState()
+    const usersPokemonUrls = [
+        "https://pokeapi.co/api/v2/pokemon/gengar",
+        "https://pokeapi.co/api/v2/pokemon/charizard",
+        "https://pokeapi.co/api/v2/pokemon/blastoise",
+        "https://pokeapi.co/api/v2/pokemon/cubone",
+        "https://pokeapi.co/api/v2/pokemon/muk",
+        "https://pokeapi.co/api/v2/pokemon/mankey"
+    ]
+    const [isPending, setIsPending] = useState(true)
+    const [userPokemons, setUserPokemons] = useState()
 
 
-// useEffect(()=>{
-//         const pokeInfo = [];
-//         usersPokemon.map((pokeURL)=>{
-//             const {data, isPending, error} = UseFetch(pokeURL)
-//                 {error && setError(error)}
-//                 { isPending && setIsPending(isPending)}
-//                 if(data){
-//                     pokeInfo.push(data);
-//                 }
-//             })
-//         setPokeInfos(pokeInfo)
-//     }, [])
-        
-        
-        return (
+    useEffect(() => {
+
+        const promiseFunction = async () => {
+            const pokemonFetchers = usersPokemonUrls.map((userPokemonUrl) => {
+                return fetchFunc(userPokemonUrl)
+            })
+
+            const pokemons = await Promise.all(pokemonFetchers)
+            // console.log(pokemons)
+            setUserPokemons(pokemons)
+            setIsPending(false)
+        }
+        promiseFunction()
+    }, [])
+
+   
+
+
+    return (
         <div>
-        {error && <div> { error } </div>}
-        { isPending && <p>{"Loading the pokemon"}</p> }
-        {pokeInfos && pokeInfos.map((poke, index) => {
-            <DisplayPoke key={index} pokemon={poke}/>
-        })}
+            {isPending && <p>{"Loading the pokemon"}</p>}
+            {userPokemons && <DisplayPoke pokemons={userPokemons} />}
         </div>
     );
 }
