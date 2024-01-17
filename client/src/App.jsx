@@ -14,7 +14,7 @@ function App() {
   const [playersPokemon, setPlayersPokemon] = useState();
   const [area, setArea] = useState();
   const [enemy, setEnemyPokemon] = useState();
-  console.log(playersPokemon)
+  console.log(enemy)
 
 
   

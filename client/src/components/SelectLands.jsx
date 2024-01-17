@@ -27,7 +27,8 @@ function SelectLands(props) {
       fetch(url)
         .then(res => res.json())
         .then(data => {
-          randomEnemyUrl(data.areas[Math.ceil(Math.random() * data.areas.length)-1].url)
+          console.log(data)
+          data.areas.length !== 0 ? randomEnemyUrl(data.areas[Math.ceil(Math.random() * data.areas.length)-1].url) : enemy(null)
         })
       }
     
