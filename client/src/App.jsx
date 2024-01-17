@@ -9,9 +9,11 @@ import './App.css'
 function App() {
   const [landsIsSelected, setLandsIsSelected] = useState(false);
   const [pokeIsSelected, setPokeIsSelected] = useState(false);
-  const [selectedLandURL, setSelectedLandURL] = useState()
-  const [readyToPlay, setReadyToPlay] = useState(false)
-  const [playersPokemon, setPlayersPokemon] = useState()
+  const [selectedLandURL, setSelectedLandURL] = useState();
+  const [readyToPlay, setReadyToPlay] = useState(false);
+  const [playersPokemon, setPlayersPokemon] = useState();
+  const [area, setArea] = useState();
+  const [enemy, setEnemyPokemon] = useState();
   console.log(playersPokemon)
 
 
@@ -19,10 +21,10 @@ function App() {
 
   return (
     <div>
-        { !landsIsSelected && !pokeIsSelected  &&  <SelectLands onLocationSelected={(locationURL)=>{setSelectedLandURL(locationURL) 
+        { !landsIsSelected && !pokeIsSelected  &&  <SelectLands onEnemy={setEnemyPokemon} onArea={setArea} onLocationSelected={(locationURL)=>{setSelectedLandURL(locationURL) 
           setLandsIsSelected(true)}}/>}
-        {landsIsSelected && !pokeIsSelected && !readyToPlay && <ChoosePoke onPokemon={setPlayersPokemon} onClickReady={setReadyToPlay}/>}
-        {readyToPlay && (<Battle onChoosenPokemon={playersPokemon} onPokeIsSelected={(pokeIsSelected) => setPokeIsSelected(pokeIsSelected)} onLandIsSelected={(landIsSelected) => setLandsIsSelected(landIsSelected)}/>)} 
+        {landsIsSelected && !pokeIsSelected && !readyToPlay && <ChoosePoke onArea={area} onEnemy={enemy} onPokemon={setPlayersPokemon} onClickReady={setReadyToPlay}/>}
+        {readyToPlay && (<Battle  readyToPlay={setReadyToPlay} onEnemy={enemy} onChoosenPokemon={playersPokemon} onPokeIsSelected={(pokeIsSelected) => setPokeIsSelected(pokeIsSelected)} onLandIsSelected={(landIsSelected) => setLandsIsSelected(landIsSelected)}/>)} 
       </div>
   )
 }

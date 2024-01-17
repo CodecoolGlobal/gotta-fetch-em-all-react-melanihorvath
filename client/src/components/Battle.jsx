@@ -3,7 +3,9 @@ import { useEffect, useState } from "react";
 function Battle(props) {
   const pokeIsSelected = props.onPokeIsSelected;
   const landIsSelected = props.onLandIsSelected;
-  const playerPokemon = props.onChoosenPokemon
+  const playerPokemon = props.onChoosenPokemon;
+  const enemyPokemon = props.onEnemy;
+  const readyToPlay = props.readyToPlay;
   const [enemy, setEnemy] = useState(null);
   const [friendly, setFriendly] = useState(null);
   const [result, setResult] = useState(null)
@@ -11,7 +13,7 @@ function Battle(props) {
   const [enemyHp, setEnemyHp] = useState(null);
 
   useEffect(() => {
-    fetch("https://pokeapi.co/api/v2/pokemon/charizard")
+    fetch("https://pokeapi.co/api/v2/pokemon/" + enemyPokemon.name)
       .then(res => res.json())
       .then(data => {
         setEnemy(data)
@@ -65,7 +67,8 @@ function Battle(props) {
 
   function handleAgain(){
     pokeIsSelected(false);
-    landIsSelected(false)
+    landIsSelected(false);
+    readyToPlay(false);
   }
 
 

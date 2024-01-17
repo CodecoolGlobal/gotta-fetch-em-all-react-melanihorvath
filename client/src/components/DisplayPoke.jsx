@@ -2,14 +2,13 @@ function DisplayPoke(props) {
    const pokemons = props.pokemons
    const choosenPoke = props.onChoose
 
-   function getStat(poke, type){
+  function getStat(poke, type) {
     const Stat = poke.stats.find(stat => stat.stat.name === `${type}`);
 
-    if (Stat){
+    if (Stat) {
       return Stat.base_stat;
     }
   }
-  console.log(pokemons)
 
     return (
         <div className='backpackPokemons'>
@@ -25,7 +24,7 @@ function DisplayPoke(props) {
                 </div>
             ))}
         </div>
-    );
+  );
 }
 
 export default DisplayPoke;
