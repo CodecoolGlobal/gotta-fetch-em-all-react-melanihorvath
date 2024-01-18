@@ -5,12 +5,12 @@ function DisplayLands(props) {
   const title = props.title
 
   return (
-    <div>
+    <div className='displaylands'>
       <h3>{title}</h3>
       <ul>
         {
           lands.map(land => (
-            <li key={land.name}>
+            <li className='landlist' key={land.name}>
               <button onClick={props.onClick}>{land.name}</button>
             </li>
           ))

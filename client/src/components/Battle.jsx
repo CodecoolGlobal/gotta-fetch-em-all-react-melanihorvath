@@ -6,6 +6,7 @@ function Battle(props) {
   const playerPokemon = props.onChoosenPokemon;
   const enemyPokemon = props.onEnemy;
   const readyToPlay = props.readyToPlay;
+  const setEnemyToDefault = props.setEnemy;
   const [enemy, setEnemy] = useState(null);
   const [friendly, setFriendly] = useState(null);
   const [result, setResult] = useState(null)
@@ -69,6 +70,7 @@ function Battle(props) {
     pokeIsSelected(false);
     landIsSelected(false);
     readyToPlay(false);
+    setEnemyToDefault();
   }
 
 

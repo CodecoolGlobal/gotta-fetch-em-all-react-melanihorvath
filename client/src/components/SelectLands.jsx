@@ -28,7 +28,7 @@ function SelectLands(props) {
         .then(res => res.json())
         .then(data => {
           console.log(data)
-          data.areas.length !== 0 ? randomEnemyUrl(data.areas[Math.ceil(Math.random() * data.areas.length)-1].url) : enemy(null)
+          data.areas.length !== 0 ? randomEnemyUrl(data.areas[Math.ceil(Math.random() * data.areas.length)-1].url) : enemy("no poke")
         })
       }
     
@@ -56,7 +56,12 @@ function SelectLands(props) {
     <div>
       {error && <div> {error} </div>}
       {isPending && <p>Loading the lands</p>}
-      {data && <DisplayLands lands={lands} title={"Pokemon Lands"} onClick={handleClick} />}
+      {data && (
+      <div>
+        <h1 className='route'>choose your Route Trainer!</h1>
+        <DisplayLands lands={lands}  onClick={handleClick} />
+      </div>
+    )}
     </div>
   );
 }

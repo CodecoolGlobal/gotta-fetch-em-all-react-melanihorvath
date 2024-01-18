@@ -20,11 +20,12 @@ function App() {
   
 
   return (
-    <div>
-        { !landsIsSelected && !pokeIsSelected  &&  <SelectLands onEnemy={setEnemyPokemon} onArea={setArea} onLocationSelected={(locationURL)=>{setSelectedLandURL(locationURL) 
+    <div className='main page'>
+        { !landsIsSelected && !pokeIsSelected  && <SelectLands onEnemy={setEnemyPokemon} onArea={setArea} onLocationSelected={(locationURL)=>{setSelectedLandURL(locationURL) 
           setLandsIsSelected(true)}}/>}
-        {landsIsSelected && !pokeIsSelected && !readyToPlay && <ChoosePoke onArea={area} onEnemy={enemy} onPokemon={setPlayersPokemon} onClickReady={setReadyToPlay}/>}
-        {readyToPlay && (<Battle  readyToPlay={setReadyToPlay} onEnemy={enemy} onChoosenPokemon={playersPokemon} onPokeIsSelected={(pokeIsSelected) => setPokeIsSelected(pokeIsSelected)} onLandIsSelected={(landIsSelected) => setLandsIsSelected(landIsSelected)}/>)} 
+        { landsIsSelected && enemy === "no poke" && !pokeIsSelected && !readyToPlay && <><div><h1>no poke here</h1><button onClick={() => {setLandsIsSelected(false); setPokeIsSelected(false); setEnemyPokemon()}}>Select new path...</button></div></>}
+        {landsIsSelected && !pokeIsSelected && !readyToPlay && enemy !== "no poke" &&  <ChoosePoke onArea={area} onEnemy={enemy} onPokemon={setPlayersPokemon} onClickReady={setReadyToPlay}/> }
+        {readyToPlay && (<Battle  setEnemy={setEnemyPokemon} readyToPlay={setReadyToPlay} onEnemy={enemy} onChoosenPokemon={playersPokemon} onPokeIsSelected={(pokeIsSelected) => setPokeIsSelected(pokeIsSelected)} onLandIsSelected={(landIsSelected) => setLandsIsSelected(landIsSelected)}/>)} 
       </div>
   )
 }
