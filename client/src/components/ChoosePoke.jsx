@@ -24,7 +24,7 @@ function ChoosePoke({ onClickReady, onPokemon, onArea, onEnemy }) {
       <div>
         <Backpack onChoose={setPlayersPokemon} />
       </div>
-      {playersPokemon && <button onClick={handleClick}>Start the fight</button>}
+      {playersPokemon && <button className={"startTheFight"} onClick={handleClick}>Start the fight</button>}
     </div>
   );
 }

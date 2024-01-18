@@ -1,5 +1,5 @@
 body{
-  background: url("pics\sqlf1_250_200_mm.jpg");
+  background: url("pics/sqlf1_250_200_mm.jpg");
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
@@ -29,4 +29,28 @@ body{
 .route{
   margin-top: 21%;
   text-align: center;
+}
+
+.choosenPokemons{
+display: flex;
+justify-content: space-between;
+padding-left: 6%;
+padding-right: 6%;
+}
+
+.backpackPokemons{
+  display: flex;
+  align-content: space-between;
+  justify-content: space-evenly;
+  align-self: flex-start;
+  }
+
+.backpack{
+  border-style: solid;
+  padding: 3%;
+  background-color: #765341;
+}
+
+.startTheFight{
+  padding: 1%;
 }
