@@ -4,11 +4,17 @@ body{
   background-size: contain;
   background-repeat: no-repeat;
   background-color: #c0d09c;
+  height: 100vh;
+  font-family: "Pixel NES";
 }
 html, body {
   overflow: hidden;
   padding: 0;
   margin: 0;
+}
+
+.hpbar{
+  height: 20px;
 }
 
 
@@ -42,6 +48,10 @@ html, body{
 
 .displaylands::-webkit-scrollbar {
   display: none;
+}
+
+.hp{
+  font-family: "Pixel NES";
 }
 
 button{

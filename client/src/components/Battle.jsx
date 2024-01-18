@@ -12,6 +12,8 @@ function Battle(props) {
   const [result, setResult] = useState(null)
   const [friendlyHp, setFriendlyHp] = useState(null);
   const [enemyHp, setEnemyHp] = useState(null);
+  const [maxEnemyHp, setMaxEnemyHp] = useState(null);
+  const [maxFriendlyHp, setMaxFriendlyHp] = useState(null);
 
   useEffect(() => {
     fetch("https://pokeapi.co/api/v2/pokemon/" + enemyPokemon.name)
@@ -19,6 +21,7 @@ function Battle(props) {
       .then(data => {
         setEnemy(data)
         setEnemyHp(getStat(data, "hp"))
+        setMaxEnemyHp(getStat(data, "hp"))
       })
   }, []);
 
@@ -28,15 +31,18 @@ function Battle(props) {
       .then(data => {
         setFriendly(data)
         setFriendlyHp(getStat(data, "hp"))
+        setMaxFriendlyHp(getStat(data, "hp"))
       })
   }, []);
 
+  
   function handleBattle(friendlyHp, enemyHp, friendly, enemy) {
     if (enemy && friendly) {
       const eAttack = getStat(enemy, "attack");
       const eDef = getStat(enemy, "defense");
       const fAttack = getStat(friendly, "attack")
       const fDef = getStat(friendly, "defense");
+
 
       if (friendlyHp > 0 && enemyHp > 0) {
         const fDamage = Math.floor(((((2 / 5 + 2) * fAttack * 60 / eDef) / 50) + 2) * randomNumber() / 255)
@@ -89,13 +95,15 @@ function Battle(props) {
       ) : friendly && enemy && friendlyHp && enemyHp &&(
         <div className="battlearena">
         <div className="enemy">
-          <h2>{enemyHp}</h2>
+          <progress className="hpbar" value={enemyHp} max={maxEnemyHp}></progress>
+          <h2 className="hp">HP</h2>
           <img src={`${enemy.sprites["front_default"]}`} />
         </div>
         <button className="fightbutton" onClick={() => handleBattle(friendlyHp, enemyHp, friendly, enemy)}>FIGHT!</button>
         <div className="friendly">
           <img src={`${friendly.sprites["back_default"]}`} />
-          <h2>{friendlyHp}</h2>
+          <h2 className="hp">HP</h2>
+          <progress className="hpbar" value={friendlyHp} max={maxFriendlyHp}></progress>
         </div>
       </div>
       )}
