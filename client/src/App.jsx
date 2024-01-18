@@ -20,7 +20,7 @@ function App() {
   
 
   return (
-    <div className='main page'>
+    <div className='mainpage'>
         { !landsIsSelected && !pokeIsSelected  && <SelectLands onEnemy={setEnemyPokemon} onArea={setArea} onLocationSelected={(locationURL)=>{setSelectedLandURL(locationURL) 
           setLandsIsSelected(true)}}/>}
         { landsIsSelected && enemy === "no poke" && !pokeIsSelected && !readyToPlay && <><div><h1>no poke here</h1><button onClick={() => {setLandsIsSelected(false); setPokeIsSelected(false); setEnemyPokemon()}}>Select new path...</button></div></>}

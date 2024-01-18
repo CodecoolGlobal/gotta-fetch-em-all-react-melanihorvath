@@ -6,13 +6,30 @@ body{
   background-color: #c0d09c;
 }
 
+html, body{
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+}
+
 #root {
   
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
   
 }
+.fightbutton:hover {
+  background-color: #ffffff;
+  box-shadow: none;
+  transform: none;
+}
+
+.fightbutton:active{
+  background-color: #d70d0d;
+  box-shadow: 0 5px #666;
+  transform: translateY(8px);
+}
+
 
 .landlist{
   list-style-type: none;
@@ -22,7 +39,7 @@ body{
   display: none;
 }
 
-.landlistbutton{
+button{
   font-family: "Pixel NES";
   width: 250px;
   padding: 3%;
@@ -33,7 +50,7 @@ body{
   border-bottom: 6px solid black; 
 }
 
-.landlistbutton:hover {
+button:hover {
   background-color: #8b8e3e;
   box-shadow: 0 5px #666;
   transform: translateY(4px);
@@ -90,4 +107,28 @@ padding-right: 6%;
 
 .startTheFight{
   padding: 1%;
+}
+
+.mainpage{
+  display: flex;
+  height: 100vh;
+  /* width: 100vh; */
+  flex-direction: column;
+  justify-content: center;
+}
+
+.battlearena{
+  background: url("pics/current-ptu-custom-maps-for-the-aeris-region-feel-free-to-v0-72986g7gmiua1.webp");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.enemy{
+  margin-top: 150px;
 }

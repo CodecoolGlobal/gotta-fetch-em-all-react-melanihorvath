@@ -87,16 +87,16 @@ function Battle(props) {
           <button onClick={()=>handleAgain()}>Play again? (noob)</button>
         </div>
       ) : friendly && enemy && friendlyHp && enemyHp &&(
-        <div>
+        <div className="battlearena">
         <div className="enemy">
-          <img src={`${enemy.sprites["front_default"]}`} />
           <h2>{enemyHp}</h2>
+          <img src={`${enemy.sprites["front_default"]}`} />
         </div>
+        <button className="fightbutton" onClick={() => handleBattle(friendlyHp, enemyHp, friendly, enemy)}>FIGHT!</button>
         <div className="friendly">
           <img src={`${friendly.sprites["back_default"]}`} />
           <h2>{friendlyHp}</h2>
         </div>
-        <button onClick={() => handleBattle(friendlyHp, enemyHp, friendly, enemy)}>FIGHT!</button>
       </div>
       )}
     </>
