@@ -5,13 +5,17 @@ body{
   background-repeat: no-repeat;
   background-color: #c0d09c;
 }
+html, body {
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+}
+
 
 #root {
-  
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
-  
+  padding: 0;
 }
 
 .landlist{
@@ -22,7 +26,7 @@ body{
   display: none;
 }
 
-.landlistbutton{
+button{
   font-family: "Pixel NES";
   width: 250px;
   padding: 3%;
@@ -33,7 +37,7 @@ body{
   border-bottom: 6px solid black; 
 }
 
-.landlistbutton:hover {
+button:hover {
   background-color: #8b8e3e;
   box-shadow: 0 5px #666;
   transform: translateY(4px);
@@ -69,23 +73,65 @@ body{
 }
 
 .choosenPokemons{
+font-family: "Pixel NES";
+flex-direction: row-reverse;
 display: flex;
 justify-content: space-between;
-padding-left: 6%;
-padding-right: 6%;
+padding-left: 5%;
+padding-right: 5%;
+margin-bottom: 1%;
+margin-top: 5px;
 }
 
 .backpackPokemons{
+  font-family: "Pixel NES";
   display: flex;
   align-content: space-between;
   justify-content: space-evenly;
   align-self: flex-start;
+  
   }
+
+.enemyPoke{
+  border-style: solid;
+  border-top: 3px solid rgb(46, 46, 53); 
+  border-left: 3px solid black; 
+  border-right: 8px solid black; 
+  border-bottom: 6px solid black; 
+  padding-left: 3%;
+  padding-right: 3%;
+  background-color: white;
+  width: 200px
+
+}
 
 .backpack{
   border-style: solid;
-  padding: 3%;
-  background-color: #765341;
+  border-top: 5px solid rgb(46, 46, 53); 
+  border-left: 5px solid black; 
+  border-right: 5px solid black; 
+  border-bottom: 5px solid black; 
+  padding: 5px;
+  padding-bottom: 1%;
+  margin-left: 1%;
+  margin-right: 1%;
+  background-color: #89966a;
+}
+.backpackPokeButton{
+  width: 170px;
+}
+
+.playersPoke{
+  border-style: solid;
+  border-top: 3px solid rgb(46, 46, 53); 
+  border-left: 3px solid black; 
+  border-right: 8px solid black; 
+  border-bottom: 6px solid black; 
+  /* padding-left: 6%;
+  padding-right: 6%; */
+  background-color: white;
+  width: 200px
+
 }
 
 .startTheFight{

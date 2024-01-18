@@ -20,7 +20,7 @@ function DisplayPoke(props) {
                     <p>{"HP: " + getStat(pokemon, "hp")}</p>
                     <p>{"Attack: " + getStat(pokemon, "attack")}</p>
                     <p>{"Defense: " + getStat(pokemon, "defense")}</p>
-                    <button onClick={() => choosenPoke(pokemon)}>{`${pokemon.name} I choose you`}</button>
+                    <button className="backpackPokeButton" onClick={() => choosenPoke(pokemon)}>{`${pokemon.name}`}<br/>I choose you</button>
                 </div>
             ))}
         </div>
