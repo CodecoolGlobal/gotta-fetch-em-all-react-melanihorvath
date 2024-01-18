@@ -1,5 +1,5 @@
 body{
-  background: url("pics\sqlf1_250_200_mm.jpg");
+  background: url("pics/sqlf1_250_200_mm.jpg");
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
@@ -15,18 +15,55 @@ body{
 }
 
 .landlist{
-  list-style-type: none
+  list-style-type: none;
+}
+
+.displaylands::-webkit-scrollbar {
+  display: none;
+}
+
+.landlistbutton{
+  font-family: "Pixel NES";
+  width: 250px;
+  padding: 3%;
+  margin: 1%;
+  border-top: 3px solid rgb(46, 46, 53); 
+  border-left: 3px solid black; 
+  border-right: 8px solid black; 
+  border-bottom: 6px solid black; 
+}
+
+.landlistbutton:hover {
+  background-color: #8b8e3e;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }
 
 .displaylands{
-  
+  column-count: 4;
   justify-content: center;
   height: 300px;
   overflow: hidden;
   overflow-y: scroll;
+  
+}
+
+.landsul{
+  margin: 0;
 }
 
 .route{
   margin-top: 21%;
   text-align: center;
+  font-family: "Pixel NES";
+}
+
+@font-face {
+  font-family: "Pixel NES";
+  src: url("https://db.onlinewebfonts.com/t/f555c47ffc99d5fbcc445e615749dc38.eot");
+  src: url("https://db.onlinewebfonts.com/t/f555c47ffc99d5fbcc445e615749dc38.eot?#iefix")format("embedded-opentype"),
+  url("https://db.onlinewebfonts.com/t/f555c47ffc99d5fbcc445e615749dc38.woff2")format("woff2"),
+  url("https://db.onlinewebfonts.com/t/f555c47ffc99d5fbcc445e615749dc38.woff")format("woff"),
+  url("https://db.onlinewebfonts.com/t/f555c47ffc99d5fbcc445e615749dc38.ttf")format("truetype"),
+  url("https://db.onlinewebfonts.com/t/f555c47ffc99d5fbcc445e615749dc38.svg#Pixel NES")format("svg");
 }
