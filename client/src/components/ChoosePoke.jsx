@@ -8,7 +8,6 @@ import PlayerPokemon from "./PlayersPoke"
 function ChoosePoke({ onClickReady, onPokemon, onArea, onEnemy }) {
   const [playersPokemon, setPlayersPokemon] = useState();
   const [enemyPokemon, setEnemyPokemon] = useState();
-  console.log(onEnemy);
 
   const handleClick = () => {
     onPokemon(playersPokemon)
@@ -24,7 +23,7 @@ function ChoosePoke({ onClickReady, onPokemon, onArea, onEnemy }) {
       <div>
         <Backpack onChoose={setPlayersPokemon} />
       </div>
-      {playersPokemon && <button className={"startTheFight"} onClick={handleClick}>Start the fight</button>}
+      {playersPokemon && <button className={"startTheFight"} onClick={handleClick}>Start the fight!</button>}
     </div>
   );
 }

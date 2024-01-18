@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 
 function EnemyPoke({ onRandomEnemy : pokemon }) {
 
-
   function getStat(poke, type) {
     const Stat = poke.stats.find(stat => stat.stat.name === `${type}`)
     if (Stat) {

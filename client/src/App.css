@@ -4,7 +4,6 @@ body{
   background-size: contain;
   background-repeat: no-repeat;
   background-color: #c0d09c;
-  height: 100vh;
   font-family: "Pixel NES";
 }
 html, body {
@@ -13,8 +12,18 @@ html, body {
   margin: 0;
 }
 
-.hpbar{
+progress{
+  appearance: none;
   height: 20px;
+  border: 2px solid black;
+}
+
+progress::-webkit-progress-value {
+  background: #ff0000;
+  /* border-top: 1px solid rgb(46, 46, 53); 
+  border-left: 1px solid black;  */
+  border-right: 2px solid black; 
+  /* border-bottom: 3px solid black;  */
 }
 
 
@@ -188,4 +197,20 @@ margin-top: 5px;
 
 .enemy{
   margin-top: 150px;
+}
+
+.friendly-image {
+  transition: transform 0.5s ease;
+}
+
+.friendly-image.moved {
+  transform: translateY(-20px);
+}
+
+.enemy-image {
+  transition: transform 0.5s ease;
+}
+
+.enemy-image.moved {
+  transform: translateY(20px);
 }
