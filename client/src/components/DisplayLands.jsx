@@ -6,12 +6,11 @@ function DisplayLands(props) {
 
   return (
     <div className='displaylands'>
-      <h3>{title}</h3>
-      <ul>
+      <ul className='landsul'>
         {
           lands.map(land => (
             <li className='landlist' key={land.name}>
-              <button onClick={props.onClick}>{land.name}</button>
+              <button className='landlistbutton' onClick={props.onClick}>{land.name}</button>
             </li>
           ))
         }
