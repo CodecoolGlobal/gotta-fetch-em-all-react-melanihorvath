@@ -84,6 +84,7 @@ button:hover {
   margin: 0;
 }
 
+
 .route{
   margin-top: 21%;
   text-align: center;
@@ -188,4 +189,8 @@ margin-top: 5px;
 
 .enemy{
   margin-top: 150px;
+}
+
+.response{
+  padding-top: 15%;
 }

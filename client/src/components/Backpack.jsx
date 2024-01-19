@@ -29,7 +29,6 @@ function Backpack({onChoose}) {
             })
 
             const pokemons = await Promise.all(pokemonFetchers)
-            // console.log(pokemons)
             setUserPokemons(pokemons)
             setIsPending(false)
         }

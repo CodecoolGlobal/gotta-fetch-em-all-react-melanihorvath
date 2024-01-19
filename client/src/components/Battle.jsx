@@ -83,12 +83,12 @@ function Battle(props) {
   return (
     <>
       {result === "winner" ? (
-        <div>
+        <div className="response">
           <h1>EASY PEASY LEMON SQUEEZI!!</h1>
           <button onClick={()=>handleAgain()}>GO AGAIN CHAMP!</button>
         </div>
       ) : result === "lost" ? (
-        <div>
+        <div className="response">
           <h1>OMG WHAT A LOOSER! DID U KNOW WHAT GAME ARE U PLAYING???</h1>
           <button onClick={()=>handleAgain()}>Play again? (noob)</button>
         </div>
