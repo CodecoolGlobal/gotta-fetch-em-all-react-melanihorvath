@@ -35,22 +35,33 @@ function Battle(props) {
       })
   }, []);
 
-  
   function handleBattle(friendlyHp, enemyHp, friendly, enemy) {
     if (enemy && friendly) {
       const eAttack = getStat(enemy, "attack");
       const eDef = getStat(enemy, "defense");
       const fAttack = getStat(friendly, "attack")
       const fDef = getStat(friendly, "defense");
-
-
       if (friendlyHp > 0 && enemyHp > 0) {
         const fDamage = Math.floor(((((2 / 5 + 2) * fAttack * 60 / eDef) / 50) + 2) * randomNumber() / 255)
-        setEnemyHp(enemyHp-fDamage)
-        if (enemyHp-fDamage > 1) {
+        setEnemyHp(enemyHp - fDamage)
+
+        const friendlyImage = document.querySelector('.friendly-image');
+      friendlyImage.classList.add('moved');
+      setTimeout(() => {
+        friendlyImage.classList.remove('moved');
+      }, 500);
+
+        if (enemyHp - fDamage > 0) {
           const eDamage = Math.floor(((((2 / 5 + 2) * eAttack * 60 / fDef) / 50) + 2) * randomNumber() / 255)
-          setFriendlyHp(friendlyHp-eDamage)
-          if (friendlyHp-eDamage < 1){
+          setFriendlyHp(friendlyHp - eDamage)
+
+          const enemyImage = document.querySelector('.enemy-image');
+      enemyImage.classList.add('moved');
+      setTimeout(() => {
+        enemyImage.classList.remove('moved');
+      }, 500);
+
+          if (friendlyHp - eDamage < 1) {
             setResult("lost");
           }
         } else {
@@ -72,40 +83,43 @@ function Battle(props) {
     }
   }
 
-  function handleAgain(){
+  function handleAgain() {
     pokeIsSelected(false);
     landIsSelected(false);
     readyToPlay(false);
     setEnemyToDefault();
   }
 
-
+  
   return (
     <>
       {result === "winner" ? (
         <div className="response">
+          <audio autoPlay src="https://dl.vgmdownloads.com/soundtracks/pokemon-red-green-blue-yellow/ecwbedzmys/12%20Victory%21%20%28Trainer%20Battle%29.mp3"></audio>
           <h1>EASY PEASY LEMON SQUEEZI!!</h1>
-          <button onClick={()=>handleAgain()}>GO AGAIN CHAMP!</button>
+          <button onClick={() => handleAgain()}>GO AGAIN CHAMP!</button>
         </div>
       ) : result === "lost" ? (
         <div className="response">
+          <audio autoPlay src="https://dl.vgmdownloads.com/soundtracks/pokemon-red-green-blue-yellow/bhrjdugjcz/20%20Fanfare%20Pok%C3%A9mon%20Caught.mp3"></audio>
           <h1>OMG WHAT A LOOSER! DID U KNOW WHAT GAME ARE U PLAYING???</h1>
-          <button onClick={()=>handleAgain()}>Play again? (noob)</button>
+          <button onClick={() => handleAgain()}>Play again? (noob)</button>
         </div>
-      ) : friendly && enemy && friendlyHp && enemyHp &&(
+      ) : friendly && enemy && friendlyHp && enemyHp && (
         <div className="battlearena">
-        <div className="enemy">
-          <progress className="hpbar" value={enemyHp} max={maxEnemyHp}></progress>
-          <h2 className="hp">HP</h2>
-          <img src={`${enemy.sprites["front_default"]}`} />
+          <audio autoPlay src="https://dl.vgmdownloads.com/soundtracks/pokemon-red-green-blue-yellow/lfakpvxalk/10%20Battle%21%20%28Trainer%20Battle%29.mp3"></audio>
+          <div className="enemy">
+            <progress className="hpbar" value={enemyHp} max={maxEnemyHp}>{enemyHp}</progress>
+            <h2 className="hp">HP</h2>
+            <img src={`${enemy.sprites["front_default"]}`} className="enemy-image" />
+          </div>
+          <button className="fightbutton" onClick={() => handleBattle(friendlyHp, enemyHp, friendly, enemy)}>FIGHT!</button>
+          <div className="friendly">
+            <img src={`${friendly.sprites["back_default"]}`} className="friendly-image" />
+            <h2 className="hp">HP</h2>
+            <progress className="hpbar" value={friendlyHp} max={maxFriendlyHp}></progress>
+          </div>
         </div>
-        <button className="fightbutton" onClick={() => handleBattle(friendlyHp, enemyHp, friendly, enemy)}>FIGHT!</button>
-        <div className="friendly">
-          <img src={`${friendly.sprites["back_default"]}`} />
-          <h2 className="hp">HP</h2>
-          <progress className="hpbar" value={friendlyHp} max={maxFriendlyHp}></progress>
-        </div>
-      </div>
       )}
     </>
   )
