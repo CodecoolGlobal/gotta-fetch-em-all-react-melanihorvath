@@ -1,8 +1,8 @@
 
 import { useState } from 'react'
-import Battle from './components/Battle';
-import SelectLands from "./components/SelectLands"
-import ChoosePoke from './components/ChoosePoke'
+import Battle from './pages/Battle';
+import SelectLands from "./pages/SelectLands"
+import ChoosePoke from './pages/ChoosePoke'
 
 import './App.css'
 
