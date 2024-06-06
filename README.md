@@ -48,7 +48,7 @@ To run this project locally, follow these steps:
 
 4. Start the development server:
     ```sh
-    npm start
+    npm run dev
     ```
 
 ## Usage
@@ -69,4 +69,4 @@ In this project, I learned:
 
 ## Acknowledgments
 - [PokéApi](https://pokeapi.co/) for providing the Pokémon data.
-- [React](https://reactjs.org/) for the robust front-end library.
+- [React](https://reactjs.org/) for the front-end library.
