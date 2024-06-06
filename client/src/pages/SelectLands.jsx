@@ -3,12 +3,10 @@ import UseFetch from './UseFetch';
 import DisplayLands from './components/DisplayLands';
 
 
-function SelectLands(props) {
+function SelectLands({onEnemy: enemy}) {
   const apiLandsKEY = 'https://pokeapi.co/api/v2/location'
   const { data, isPending, error } = UseFetch(apiLandsKEY)
   const [lands, setLands] = useState([])
-  const area = props.onArea;
-  const enemy = props.onEnemy
 
   useEffect(() => {
     if (data) {
