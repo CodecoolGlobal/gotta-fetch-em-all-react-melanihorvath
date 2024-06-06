@@ -1,6 +1,6 @@
 # Pokémon Encounter Site Team Project
 
-Welcome to the coolest Pokémon site! This project uses React and JavaScript to create an engaging application where users can explore locations and encounter random Pokémon. The data is fetched from the PokéApi.This was a group project created by Melani Horváth [Melani Horváth](https://github.com/melanihorvath) and [Gergő Fazekas](https://github.com/gergofazekas92).
+Welcome to the coolest Pokémon site! This project uses React and JavaScript to create an engaging application where users can explore locations and encounter random Pokémon. The data is fetched from the PokéApi.This was a group project created by [Melani Horváth](https://github.com/melanihorvath) and [Gergő Fazekas](https://github.com/gergofazekas92).
 
 ## Table of Contents
 - [Overview](#overview)
