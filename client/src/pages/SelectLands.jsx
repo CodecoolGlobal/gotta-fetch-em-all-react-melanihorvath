@@ -3,7 +3,7 @@ import UseFetch from './UseFetch';
 import DisplayLands from './components/DisplayLands';
 
 
-function SelectLands({onEnemy: enemy}) {
+function SelectLands({onEnemy: enemy, onLocationSelected : selectedLocation}) {
   const apiLandsKEY = 'https://pokeapi.co/api/v2/location'
   const { data, isPending, error } = UseFetch(apiLandsKEY)
   const [lands, setLands] = useState([])
@@ -17,7 +17,7 @@ function SelectLands({onEnemy: enemy}) {
   const handleClick = (e) => {
     const apiLocationsKEY = 'https://pokeapi.co/api/v2/location/';
     randomArea(apiLocationsKEY + e.target.innerText)
-    return props.onLocationSelected(apiLocationsKEY + e.target.innerText)
+    return selectedLocation(apiLocationsKEY + e.target.innerText)
   }
 
   function randomArea(url){
